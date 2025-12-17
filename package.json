@@ -1,0 +1,40 @@
+{
+  "name": "rock-paper-scissors-game",
+  "version": "1.0.0",
+  "description": "A Rock Paper Scissors game with TypeScript and Jest testing",
+  "main": "dist/rook-paper-sicssores.js",
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "start": "live-server",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MohsenRahbar/Rock-paper-sicssores-game.git"
+  },
+  "keywords": [
+    "rock",
+    "paper",
+    "scissors",
+    "game",
+    "typescript",
+    "jest"
+  ],
+  "author": "MohsenRahbar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MohsenRahbar/Rock-paper-sicssores-game/issues"
+  },
+  "homepage": "https://github.com/MohsenRahbar/Rock-paper-sicssores-game#readme",
+  "dependencies": {
+    "live-server": "^1.2.2"
+  },
+  "devDependencies": {
+    "@types/jest": "^30.0.0",
+    "jest": "^30.2.0",
+    "jest-environment-jsdom": "^30.2.0",
+    "ts-jest": "^29.4.6",
+    "typescript": "^5.2.2"
+  }
+}
