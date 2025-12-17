@@ -43,6 +43,14 @@ A modern, interactive **Rock Paper Scissors Game** built with **TypeScript**, **
 
 **Rock Paper Scissors Game 2** is a fully interactive game that allows users to play the classic Rock Paper Scissors game against the computer. It includes advanced features like autoplay, keyboard shortcuts, audio feedback for win/lose/tie, and a responsive design for mobile and desktop screens.
 
+---
+
+### Screenshot
+
+![Game Screenshot](./images/Screenshot.png)
+
+---
+
 ### Features
 - Play Rock, Paper, or Scissors against the computer.
 - Autoplay mode: computer plays automatically.
