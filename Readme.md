@@ -22,6 +22,9 @@ A modern, interactive **Rock Paper Scissors Game** built with **TypeScript**, **
     <li>
       <a href="#usage">Usage</a>
     </li>
+        <li>
+      <a href="#docker">Docker</a>
+    </li>
     <li>
       <a href="#tests">Unit Tests</a>
     </li>
@@ -101,6 +104,27 @@ A modern, interactive **Rock Paper Scissors Game** built with **TypeScript**, **
 * Toggle **Autoplay** with the button or press `A`.
 * Reset scores using the **Reset** button.
 * See visual feedback of moves and results in real-time.
+
+---
+
+## Docker
+
+This project can be easily run inside a **Docker container**, so you don’t need to install Node.js or dependencies locally.
+
+### Prerequisites
+
+* Docker installed
+  👉 [https://docs.docker.com/get-docker/](https://docs.docker.com/get-docker/)
+
+---
+
+### Build Docker Image
+
+From the project root directory, run:
+
+```bash
+docker build -t rock-paper-scissors-game .
+```
 
 ---
 
