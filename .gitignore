@@ -28,4 +28,5 @@ Thumbs.db
 *.sublime-project
 
 
-rook-paper-sicssores.js
+*.js
+
