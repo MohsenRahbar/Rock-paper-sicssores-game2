@@ -3,7 +3,7 @@ name: Deploy Rock Paper Scissors Game
 on:
   push:
     branches:
-      - master
+      - master  # وقتی روی مستر پوش شد، اجرا میشه
 
 permissions:
   contents: read
@@ -26,22 +26,26 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      - name: Run tests
+        run: npm test
+
       - name: Build TypeScript
         run: npx tsc
 
       - name: Prepare deploy folder
         run: |
+          rm -rf deploy
           mkdir deploy
           cp index.html deploy/
           cp stylegame.css deploy/
+          cp -r dist deploy/
           cp -r images deploy/
           cp -r Music deploy/
-          cp -r dist deploy/
 
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v1
         with:
           path: deploy
 
       - name: Deploy to GitHub Pages
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v1
