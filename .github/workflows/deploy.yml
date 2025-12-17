@@ -32,10 +32,19 @@ jobs:
       - name: Build TypeScript
         run: npx tsc
 
+      - name: Prepare artifact
+        run: |
+          mkdir deploy
+          cp index.html deploy/
+          cp stylegame.css deploy/
+          cp -r images deploy/
+          cp -r Music deploy/
+          cp -r dist deploy/
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: .
+          path: deploy
 
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v4
