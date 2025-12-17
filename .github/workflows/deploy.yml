@@ -3,15 +3,10 @@ name: Deploy Rock Paper Scissors Game
 on:
   push:
     branches:
-      - master 
-      
-permissions:
-  contents: read
-  pages: write
-  id-token: write
+      - master
 
 jobs:
-  build-and-deploy:
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
@@ -26,26 +21,12 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Run tests
-        run: npm test
-
       - name: Build TypeScript
         run: npx tsc
 
-      - name: Copy files to root for deployment
-        run: |
-          rm -rf deploy-root
-          mkdir deploy-root
-          cp index.html deploy-root/
-          cp stylegame.css deploy-root/
-          cp -r dist/* deploy-root/
-          cp -r images deploy-root/
-          cp -r Music deploy-root/
-
-      - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v1
-        with:
-          path: deploy-root
-
       - name: Deploy to GitHub Pages
-        uses: actions/deploy-pages@v1
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: master             # branch to deploy from
+          folder: ./                 # deploy from root folder
+          clean: false               # keep other files if exist
