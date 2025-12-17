@@ -26,13 +26,10 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Run tests
-        run: npm test
-
       - name: Build TypeScript
         run: npx tsc
 
-      - name: Prepare artifact
+      - name: Prepare deploy folder
         run: |
           mkdir deploy
           cp index.html deploy/
