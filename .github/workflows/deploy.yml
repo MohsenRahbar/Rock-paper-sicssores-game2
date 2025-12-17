@@ -5,6 +5,11 @@ on:
     branches:
       - master
 
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -27,6 +32,6 @@ jobs:
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          branch: master             # branch to deploy from
-          folder: ./                 # deploy from root folder
-          clean: false               # keep other files if exist
+          branch: master       # branch to deploy to
+          folder: ./           # deploy from root folder
+          clean: false         # keep other files if exist
