@@ -1,4 +1,4 @@
-name: Deploy Rock Paper Scissors Game
+name: Deploy Rock Paper Scissors Game 2
 
 on:
   push:
@@ -10,33 +10,37 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Checkout repo
-      - uses: actions/checkout@v4
+      # Checkout repository
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
       # Setup Node.js
-      - uses: actions/setup-node@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
           node-version: 20
 
       # Install dependencies
-      - run: npm install
+      - name: Install dependencies
+        run: npm install
 
       # Compile TypeScript
-      - run: npx tsc
+      - name: Build TypeScript
+        run: npx tsc
 
-      # Prepare deployment folder (dist + other assets)
-      - name: Prepare Deployment
+      # Copy static assets to dist
+      - name: Copy static assets
         run: |
-          mkdir deploy
-          cp -r dist/* deploy/
-          cp index.html deploy/
-          cp stylegame.css deploy/
-          cp -r images deploy/
-          cp -r Music deploy/
+          mkdir -p dist
+          cp -r index.html stylegame.css images Music dist/
 
       # Deploy to GitHub Pages
-      - uses: JamesIves/github-pages-deploy-action@v4
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
-          branch: master        # branch to deploy to
-          folder: deploy         # folder to deploy
-          clean: true
+          branch: master         # branch to deploy to
+          folder: ./dist         
+          token: ${{ secrets.GH_PAGES_TOKEN }}
+          clean: true          
+
+
